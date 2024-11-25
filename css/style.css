@@ -11,6 +11,9 @@ a {
 
 .page__main {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backup-branch
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -54,6 +57,7 @@ a {
 .buttons {
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
 =======
     /* Ảnh nền của trang đầu tiên nếu bạn muốn đổi thì đổi tại đây */
     background-image: url("../img/background.png");
@@ -66,11 +70,16 @@ a {
 .buttons {
     display: flex;
 >>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
+=======
+>>>>>>> backup-branch
     column-gap: 3rem;
     padding: 2rem;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backup-branch
 .btn {
 =======
 .btn-bir:hover {
@@ -115,6 +124,7 @@ a {
 
 .btn:hover {
     background-position: right center;
+<<<<<<< HEAD
 =======
 }
 
@@ -142,11 +152,16 @@ a {
 .btn-timeline:hover {
     background-position: right center; 
 >>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
+=======
+>>>>>>> backup-branch
     color: #fff;
     text-decoration: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backup-branch
 .btn-bir {
     background-color: #f1c40f; /* Yellow for 'Bí mật' */
 }
@@ -157,6 +172,7 @@ a {
 
 .btn-gallery {
     background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
+<<<<<<< HEAD
 =======
 .btn-gallery {
     background-image: linear-gradient(
@@ -184,20 +200,28 @@ a {
     color: #fff;
     text-decoration: none;
 >>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
+=======
+>>>>>>> backup-branch
 }
 
 .cover {
     width: 240px;
     height: 240px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    
 >>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
+=======
+>>>>>>> backup-branch
     box-shadow: 0 0 30px #eee;
     position: absolute;
     margin-top: 3rem;
     left: calc(50% - 100px);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backup-branch
     border-radius: 120px;
     border: 5px solid rgb(255, 17, 0);
 }
@@ -231,9 +255,12 @@ a {
     transform: scale(1.1);
     background-image: linear-gradient(to right, #c39bd3, #8e44ad); /* Reverse gradient on hover */
 }
+<<<<<<< HEAD
 =======
   
     border-radius: 120px;
     border: 5px solid rgb(255, 17, 0);
 }
 >>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
+=======
+>>>>>>> backup-branch
