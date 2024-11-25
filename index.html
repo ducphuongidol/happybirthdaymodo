@@ -36,6 +36,8 @@
                 noBtnCounter++;
                 if (noBtnCounter >= 10) {
                     alert('Còn lâu mới click được!');
+                    var audio1 = new Audio('./music/fail.mp3');
+                    audio1.play();
                     noBtnCounter = 0; // Reset the counter after showing the alert
                 }
                 this.style.position = 'absolute';
