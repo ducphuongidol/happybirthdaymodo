@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="./img/CILKGax.png" />
+        <title>Happy birthday Mò iu</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+<body class="page__main">
+    <div class="buttons">
+        <a href="index.html" class="btn btn-bir">Bí mật</a>
+        <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
+        <a href="gallery.html" class="btn btn-gallery">Memories</a>
+    </div>
+    <div id="text">
+        <p>Mò iu anh hong?</p>
+        <div class="buttons">
+            <button id="yesBtn" class="btn">Em có ạaaaa</button>
+            <button id="noBtn" class="btn">Hong thèm</button>
+        </div>
+    </div>
+        <audio id="player" autoplay loop>
+            <source src="./music/music.mp3" type="audio/mp3" />
+        </audio>
+        <script>
+            document.getElementById('yesBtn').addEventListener('click', function() {
+                alert('Thế còn đc');
+                var audio = new Audio('ting_ting.mp3');
+                audio.play();
+            });
+
+            let noBtnCounter = 0;
+            document.getElementById('noBtn').addEventListener('mouseover', function() {
+                noBtnCounter++;
+                if (noBtnCounter >= 10) {
+                    alert('Còn lâu mới click được!');
+                    noBtnCounter = 0; // Reset the counter after showing the alert
+                }
+                this.style.position = 'absolute';
+                this.style.left = Math.random() * (window.innerWidth - this.offsetWidth) + 'px';
+                this.style.top = Math.random() * (window.innerHeight - this.offsetHeight) + 'px';
+            });
+        </script>
+    </body>
+</html>

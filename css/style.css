@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap");
+
+html {
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page__main {
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#text {
+    text-align: center;
+    margin-top: 20%;
+}
+
+#text p {
+    font-size: 2rem; /* Increase the font size */
+    background-image: linear-gradient(to right, #2193b0 0%, #6dd5ed 51%, #2193b0 100%); /* Blue gradient background */
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white; /* Keep the text color white */
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: inline-block;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px #eee;
+    }
+    to {
+        box-shadow: 0 0 30px #2193b0;
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    column-gap: 3rem;
+    padding: 2rem;
+}
+
+.btn {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-bir {
+    background-color: #f1c40f; /* Yellow for 'Bí mật' */
+}
+
+.btn-timeline {
+    background-image: linear-gradient(to right, #da22ff 0%, #9733ee 51%, #da22ff 100%);
+}
+
+.btn-gallery {
+    background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
+}
+
+.cover {
+    width: 240px;
+    height: 240px;
+    box-shadow: 0 0 30px #eee;
+    position: absolute;
+    margin-top: 3rem;
+    left: calc(50% - 100px);
+    border-radius: 120px;
+    border: 5px solid rgb(255, 17, 0);
+}
+
+/* Christmas-themed styles */
+#text p {
+    background-image: linear-gradient(to right, #2193b0, #6dd5ed); /* Blue gradient for Christmas */
+    box-shadow: 0 0 20px #2193b0;
+}
+
+#text .btn {
+    box-shadow: 0 0 10px #2193b0;
+}
+
+#yesBtn {
+    background-color: #28a745; /* Green for 'Yes' */
+    color: white;
+}
+
+#noBtn {
+    background-image: linear-gradient(to right, #8e44ad, #c39bd3); /* Purple gradient for 'No' */
+    color: white;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+    background-color: #218838; /* Darker green on hover */
+}
+
+#noBtn:hover {
+    transform: scale(1.1);
+    background-image: linear-gradient(to right, #c39bd3, #8e44ad); /* Reverse gradient on hover */
+}
