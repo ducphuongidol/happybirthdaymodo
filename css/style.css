@@ -10,6 +10,7 @@ a {
 }
 
 .page__main {
+<<<<<<< HEAD
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,11 +54,39 @@ a {
 .buttons {
     display: flex;
     justify-content: center;
+=======
+    /* Ảnh nền của trang đầu tiên nếu bạn muốn đổi thì đổi tại đây */
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position-y: -18rem;
+}
+.buttons {
+    display: flex;
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
     column-gap: 3rem;
     padding: 2rem;
 }
 
+<<<<<<< HEAD
 .btn {
+=======
+.btn-bir:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-bir {
+    background-image: linear-gradient(
+        to right,
+        #314755 0%,
+        #26a0da 51%,
+        #314755 100%
+    );
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
     margin: 10px;
     padding: 15px 45px;
     text-align: center;
@@ -68,6 +97,7 @@ a {
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
+<<<<<<< HEAD
     animation: pulse 1.5s infinite;
 }
 
@@ -85,10 +115,38 @@ a {
 
 .btn:hover {
     background-position: right center;
+=======
+}
+
+.btn-timeline {
+    background-image: linear-gradient(
+        to right,
+        #da22ff 0%,
+        #9733ee 51%,
+        #da22ff 100%
+    );
+}
+.btn-timeline {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-timeline:hover {
+    background-position: right center; 
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
     color: #fff;
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 .btn-bir {
     background-color: #f1c40f; /* Yellow for 'Bí mật' */
 }
@@ -99,15 +157,47 @@ a {
 
 .btn-gallery {
     background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
+=======
+.btn-gallery {
+    background-image: linear-gradient(
+        to right,
+        #02aab0 0%,
+        #00cdac 51%,
+        #02aab0 100%
+    );
+}
+.btn-gallery {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-gallery:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
 }
 
 .cover {
     width: 240px;
     height: 240px;
+<<<<<<< HEAD
+=======
+   
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
     box-shadow: 0 0 30px #eee;
     position: absolute;
     margin-top: 3rem;
     left: calc(50% - 100px);
+<<<<<<< HEAD
     border-radius: 120px;
     border: 5px solid rgb(255, 17, 0);
 }
@@ -141,3 +231,9 @@ a {
     transform: scale(1.1);
     background-image: linear-gradient(to right, #c39bd3, #8e44ad); /* Reverse gradient on hover */
 }
+=======
+  
+    border-radius: 120px;
+    border: 5px solid rgb(255, 17, 0);
+}
+>>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
