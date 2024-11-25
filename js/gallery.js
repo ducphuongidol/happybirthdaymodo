@@ -34,12 +34,4 @@ gallery.querySelectorAll('.gallery-item').forEach(function (item) {
     item.addEventListener('click', function () {
         item.classList.toggle('full');
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> ab7d03abd925ccf59c2614f49e368486425c5b66
-=======
-});
->>>>>>> backup-branch
