@@ -1,8 +1,4 @@
-const TOKEN = ''; // Replace with your personal access token
-const USERNAME = 'ducphuongidol'; // Replace with your GitHub username
-const REPO = 'https://github.com/ducphuongidol/happybirthdaymodo'; // Replace with your repository name
-const BRANCH = 'master'; // Replace with your branch name
-const API_URL = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/images`;
+
 
 async function uploadImage() {
   const fileInput = document.getElementById('imageUpload');
