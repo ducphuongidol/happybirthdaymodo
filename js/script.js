@@ -4,6 +4,37 @@ const REPO = 'happybirthdaymodo'; // Replace with your repository name (no full 
 const BRANCH = 'master'; // Replace with your branch name
 const API_URL = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/img`;
 
+async function loadGallery() {
+  const galleryDiv = document.getElementById('gallery');
+  galleryDiv.innerHTML = ''; // Clear the gallery
+
+  const response = await fetch(`${API_URL}?ref=${BRANCH}`, {
+    headers: { Authorization: `Bearer ${TOKEN}` },
+  });
+
+  if (response.ok) {
+    const files = await response.json();
+
+    files.forEach((file) => {
+      if (file.type === 'file') {
+        const img = document.createElement('img');
+        img.src = file.download_url; // Correct usage of the download URL
+        img.alt = file.name;
+        img.style.width = '100px'; // Set image size
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.onclick = () => deleteImage(file.name);
+
+        galleryDiv.appendChild(img);
+        galleryDiv.appendChild(deleteButton);
+      }
+    });
+  } else {
+    console.error('Failed to load gallery.');
+  }
+}
+
 async function uploadImage() {
   const fileInput = document.getElementById('imageUpload');
   const file = fileInput.files[0];
@@ -33,7 +64,7 @@ async function uploadImage() {
       } else {
         const error = await response.json();
         console.error('Upload failed:', error);
-        alert(`Failed to upload image: ${error.message || 'Unknown error'}`);
+        alert('Failed to upload image.');
       }
     };
 
@@ -43,70 +74,5 @@ async function uploadImage() {
   }
 }
 
-async function loadGallery() {
-  const galleryDiv = document.getElementById('gallery');
-  galleryDiv.innerHTML = ''; // Clear gallery
-
-  const response = await fetch(`${API_URL}?ref=${BRANCH}`, {
-    headers: { Authorization: `Bearer ${TOKEN}` },
-  });
-
-  if (response.ok) {
-    const files = await response.json();
-
-    files.forEach((file) => {
-      if (file.type === 'file') {
-        const img = document.createElement('img');
-        img.src = file.download_url;
-        img.alt = file.name;
-        img.style.width = '100px';
-
-        const deleteButton = document.createElement('button');
-        deleteButton.innerText = 'Delete';
-        deleteButton.onclick = () => deleteImage(file.name);
-
-        galleryDiv.appendChild(img);
-        galleryDiv.appendChild(deleteButton);
-      }
-    });
-  } else {
-    console.error('Failed to load gallery.');
-  }
-}
-
-async function deleteImage(fileName) {
-  const response = await fetch(`${API_URL}/${fileName}`, {
-    method: 'GET',
-    headers: { Authorization: `Bearer ${TOKEN}` },
-  });
-
-  if (response.ok) {
-    const fileData = await response.json();
-    const sha = fileData.sha;
-
-    const deleteResponse = await fetch(`${API_URL}/${fileName}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: `Delete ${fileName}`,
-        sha: sha, // Required for deletion
-        branch: BRANCH,
-      }),
-    });
-
-    if (deleteResponse.ok) {
-      alert('Image deleted!');
-      loadGallery(); // Refresh the gallery
-    } else {
-      console.error('Failed to delete image.');
-    }
-  } else {
-    console.error('Failed to fetch file info.');
-  }
-}
-
-// Load gallery on page load
+// Initial load of the gallery when the page loads
 loadGallery();
