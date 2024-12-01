@@ -1,6 +1,6 @@
 const TOKEN = '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'; // Replace with your personal access token
 const USERNAME = 'ducphuongidol'; // Replace with your GitHub username
-const REPO = 'https://github.com/ducphuongidol/happybirthdaymodo'; // Replace with your repository name
+const REPO = 'happybirthdaymodo'; // Replace with your repository name (no full URL)
 const BRANCH = 'master'; // Replace with your branch name
 const API_URL = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/img`;
 
@@ -33,11 +33,11 @@ async function uploadImage() {
       } else {
         const error = await response.json();
         console.error('Upload failed:', error);
-        alert('Failed to upload image.');
+        alert(`Failed to upload image: ${error.message || 'Unknown error'}`);
       }
     };
 
-    reader.readAsBinaryString(file); // Read file as binary string
+    reader.readAsDataURL(file); // Read file as Data URL (Base64)
   } else {
     alert('No file selected.');
   }
