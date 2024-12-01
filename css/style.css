@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap");
 
+/* General Styles */
 html {
     scroll-behavior: smooth;
     font-family: "Roboto", sans-serif;
@@ -26,15 +27,15 @@ a {
 }
 
 #text p {
-    font-size: 2rem; /* Increase the font size */
-    background-image: linear-gradient(to right, #2193b0 0%, #6dd5ed 51%, #2193b0 100%); /* Blue gradient background */
+    font-size: 2rem;
+    background-image: linear-gradient(to right, #2193b0 0%, #6dd5ed 51%, #2193b0 100%);
     margin: 10px;
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white; /* Keep the text color white */
+    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: inline-block;
@@ -101,27 +102,6 @@ a {
     background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
 }
 
-.cover {
-    width: 240px;
-    height: 240px;
-    box-shadow: 0 0 30px #eee;
-    position: absolute;
-    margin-top: 3rem;
-    left: calc(50% - 100px);
-    border-radius: 120px;
-    border: 5px solid rgb(255, 17, 0);
-}
-
-/* Christmas-themed styles */
-#text p {
-    background-image: linear-gradient(to right, #2193b0, #6dd5ed); /* Blue gradient for Christmas */
-    box-shadow: 0 0 20px #2193b0;
-}
-
-#text .btn {
-    box-shadow: 0 0 10px #2193b0;
-}
-
 #yesBtn {
     background-color: #28a745; /* Green for 'Yes' */
     color: white;
@@ -140,4 +120,94 @@ a {
 #noBtn:hover {
     transform: scale(1.1);
     background-image: linear-gradient(to right, #c39bd3, #8e44ad); /* Reverse gradient on hover */
+}
+
+/* Pop-up Specific Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup-content {
+    background: linear-gradient(to right, #ff9966, #ff5e62); /* Vibrant gradient */
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: popup-in 0.5s ease;
+}
+
+.popup-content h2 {
+    margin: 0 0 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700; /* Golden color */
+}
+
+.popup-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.popup-close:hover {
+    color: #ffcccb; /* Light red on hover */
+}
+
+/* Centered OK Button Styling */
+.popup-btn {
+    margin: 20px auto 0; /* Center the button horizontally */
+    display: block; /* Ensures the button stays centered */
+    padding: 12px 24px;
+    background: #8e44ad; /* Purple background */
+    border: none;
+    border-radius: 5px;
+    color: white; /* White text for contrast */
+    font-size: 1.2rem; /* Slightly larger font for readability */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.popup-btn:hover {
+    background: #6c3483; /* Darker purple for hover effect */
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes popup-in {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

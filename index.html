@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="./img/CILKGax.png" />
-        <title>Happy birthday Mò iu</title>
-        <link rel="stylesheet" href="./css/style.css" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="./img/CILKGax.png">
+        <title>Happy Birthday Mò iu</title>
+        <link rel="stylesheet" href="./css/style.css">
     </head>
-<body class="page__main">
-    <div class="buttons">
-        <a href="index.html" class="btn btn-bir">Bí mật</a>
-        <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
-        <a href="gallery.html" class="btn btn-gallery">Memories</a>
-    </div>
-    <div id="text">
-        <p>Mò iu anh hong?</p>
+    <body class="page__main">
         <div class="buttons">
-            <button id="yesBtn" class="btn">Em có ạaaaa</button>
-            <button id="noBtn" class="btn">Hong thèm</button>
+            <a href="index.html" class="btn btn-bir">Bí mật</a>
+            <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
+            <a href="gallery.html" class="btn btn-gallery">Memories</a>
         </div>
-    </div>
+        <div id="text">
+            <p>Mò iu anh hong?</p>
+            <div class="buttons">
+                <button id="yesBtn" class="btn">Em có ạaaaa</button>
+                <button id="noBtn" class="btn">Hong thèm</button>
+            </div>
+        </div>
         <audio id="player" autoplay loop>
-            <source src="./music/music.mp3" type="audio/mp3" />
+            <source src="./music/music.mp3" type="audio/mp3">
         </audio>
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <span class="popup-close">&times;</span>
+                <h2 id="popup-header"></h2>
+                <p id="popup-text"></p>
+                <!-- Added the popup-btn class here -->
+                <button id="popup-ok" class="popup-btn">OK</button>
+            </div>
+        </div>
         <script>
-            document.getElementById('yesBtn').addEventListener('click', function() {
-                alert('Thế còn đc');
+            document.getElementById('yesBtn').addEventListener('click', function () {
+                showPopup('Chính xác', 'Thế còn đc!');
                 var audio = new Audio('./music/ting_ting.mp3');
                 audio.play();
             });
 
             let noBtnCounter = 0;
-            document.getElementById('noBtn').addEventListener('mouseover', function() {
+            document.getElementById('noBtn').addEventListener('mouseover', function () {
                 noBtnCounter++;
                 if (noBtnCounter >= 10) {
-                    alert('Còn lâu mới click được!');
+                    showPopup('Oops!', 'Còn lâu mới click được!');
                     var audio1 = new Audio('./music/fail.mp3');
                     audio1.play();
-                    noBtnCounter = 0; // Reset the counter after showing the alert
+                    noBtnCounter = 0;
                 }
                 this.style.position = 'absolute';
                 this.style.left = Math.random() * (window.innerWidth - this.offsetWidth) + 'px';
                 this.style.top = Math.random() * (window.innerHeight - this.offsetHeight) + 'px';
             });
+
+            document.querySelector('.popup-close').addEventListener('click', function () {
+                hidePopup();
+            });
+
+            document.getElementById('popup-ok').addEventListener('click', function () {
+                hidePopup();
+            });
+
+            function showPopup(header, message) {
+                const popup = document.getElementById('popup');
+                const popupHeader = document.getElementById('popup-header');
+                const popupText = document.getElementById('popup-text');
+                popupHeader.textContent = header;
+                popupText.textContent = message;
+                popup.classList.remove('hidden');
+            }
+
+            function hidePopup() {
+                const popup = document.getElementById('popup');
+                popup.classList.add('hidden');
+            }
         </script>
     </body>
 </html>
