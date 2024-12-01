@@ -1,4 +1,4 @@
-const TOKEN = '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'; // Replace with your personal access token
+const TOKEN = ''; // Replace with your personal access token
 const USERNAME = 'ducphuongidol'; // Replace with your GitHub username
 const REPO = 'https://github.com/ducphuongidol/happybirthdaymodo'; // Replace with your repository name
 const BRANCH = 'master'; // Replace with your branch name
