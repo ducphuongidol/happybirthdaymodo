@@ -1,57 +1,76 @@
-var gallery = document.querySelector('#gallery');
+const publicKey = "030e77f1badde54952ba"; // Your Uploadcare public key
 
-var getVal = function (elem, style) {
-    return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
-};
+const fileInput = document.getElementById("fileInput");
+const uploadButton = document.getElementById("uploadButton");
+const deleteButton = document.getElementById("deleteButton");
+const gallery = document.getElementById("gallery");
 
-var getHeight = function (item) {
-    return item.querySelector('.content').getBoundingClientRect().height;
-};
+// Upload image
+uploadButton.addEventListener("click", async () => {
+    const file = fileInput.files[0];
+    if (file) {
+        const formData = new FormData();
+        formData.append("UPLOADCARE_PUB_KEY", publicKey);
+        formData.append("UPLOADCARE_STORE", "auto");
+        formData.append("file", file);
 
-var resizeAll = function () {
-    var altura = getVal(gallery, 'grid-auto-rows');
-    var gap = getVal(gallery, 'grid-row-gap');
-    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-        var el = item;
-        el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
-    });
-};
+        try {
+            const response = await fetch("https://upload.uploadcare.com/base/", {
+                method: "POST",
+                body: formData,
+            });
 
-var resizeObserver = new ResizeObserver(resizeAll);
-resizeObserver.observe(gallery);
-
-gallery.querySelectorAll('img').forEach(function (item) {
-    item.classList.add('byebye');
-    if (item.complete) {
-        var altura = getVal(gallery, 'grid-auto-rows');
-        var gap = getVal(gallery, 'grid-row-gap');
-        var gitem = item.parentElement.parentElement;
-        gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-        item.classList.remove('byebye');
-    } else {
-        item.addEventListener('load', function () {
-            var altura = getVal(gallery, 'grid-auto-rows');
-            var gap = getVal(gallery, 'grid-row-gap');
-            var gitem = item.parentElement.parentElement;
-            gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-            item.classList.remove('byebye');
-        });
+            const data = await response.json();
+            if (data.file) {
+                displayImage(data.cdn_url, data.file);
+            } else {
+                console.error("Upload failed:", data);
+            }
+        } catch (error) {
+            console.error("Error uploading image:", error);
+        }
     }
 });
 
-window.addEventListener('resize', debounce(resizeAll, 100));
+// Fetch and display images
+async function fetchImages() {
+    const apiUrl = "https://api.uploadcare.com/files/";
 
-gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-    item.addEventListener('click', function () {
-        item.classList.toggle('full');
-    });
-});
+    try {
+        const response = await fetch(apiUrl, {
+            method: "GET",
+            headers: {
+                Authorization: `Uploadcare.Simple ${publicKey}:`, // Correct Authorization header
+            },
+        });
 
-// Debounce function to limit the rate at which a function can fire
-function debounce(func, wait) {
-    let timeout;
-    return function () {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, arguments), wait);
-    };
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Fetched files:", data);
+
+        // Display all files
+        data.results.forEach((file) => {
+            displayImage(file.cdn_url, file.uuid);
+        });
+    } catch (error) {
+        console.error("Error fetching images:", error);
+    }
 }
+
+// Display image with delete radio button
+function displayImage(url, uuid) {
+    const item = document.createElement("div");
+    item.classList.add("gallery-item");
+    item.innerHTML = `
+        <div class="content">
+            <img src="${url}" alt="Image" />
+            <input type="radio" name="deleteRadio" value="${uuid}" />
+        </div>`;
+    gallery.appendChild(item);
+}
+
+// Initial fetch
+fetchImages();
