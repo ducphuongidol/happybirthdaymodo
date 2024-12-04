@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/png" href="./img/CILKGax.png" />
-    <title>Memories</title>
-    <link rel="stylesheet" href="./css/gallery.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-</head>
-<body>
-    <div class="buttons">
-        <a href="index.html" class="btn btn-bir">Bí mật</a>
-        <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
-        <a href="gallery.html" class="btn btn-gallery">Memories</a>
-    </div>
-    
-    <!-- Upload and Delete Section -->
-    <div class="upload-section">
-        <h2>Upload a New Image</h2>
-        <input type="file" id="imageUpload" />
-        <button onclick="uploadImage()">Upload</button>
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="icon" type="image/png" href="./img/CILKGax.png" />
+        <title>Memories</title>
+        <link rel="stylesheet" href="./css/gallery.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="buttons">
+            <a href="index.html" class="btn btn-bir">Bí mật</a>
+            <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
+            <a href="gallery.html" class="btn btn-gallery">Memories</a>
+        </div>
 
-    <!-- Gallery Section -->
-    <div class="gallery" id="gallery">
-        <!-- Existing images will be dynamically loaded here -->
-    </div>
+        <!-- Controls for file upload and delete -->
+        <div class="controls">
+            <input type="file" id="fileInput" accept="image/*" />
+            <button id="uploadButton" class="btn colorful">Upload</button>
+            <button id="deleteButton" class="btn colorful">Delete</button>
+        </div>
 
-    <!-- Audio Section -->
-    <audio id="player" autoplay loop>
-        <source src="./music/Perfect.mp3" type="audio/mp3" />
-    </audio>
-    
-    <!-- JavaScript -->
-    <script src="./js/gallery.js"></script>
-	<script src="./js/script.js"></script>
-</body>
+        <!-- Image gallery -->
+        <div class="gallery" id="gallery"></div>
+
+        <!-- Background music -->
+        <audio id="player" autoplay loop>
+            <source src="./music/Perfect.mp3" type="audio/mp3" />
+        </audio>
+
+        <script src="./js/gallery.js"></script>
+    </body>
 </html>
