@@ -11,30 +11,33 @@
 </head>
 <body>
     <div class="buttons">
-        <a href="index.html" class="btn btn-bir">Bí mật</a>
-        <a href="timeline.html" class="btn btn-timeline">Bật mí</a>
+        <a href="index.html" class="btn btn-bir">Secret</a>
+        <a href="timeline.html" class="btn btn-timeline">Timeline</a>
         <a href="gallery.html" class="btn btn-gallery">Memories</a>
     </div>
-    
-    <!-- Upload and Delete Section -->
-    <div class="upload-section">
-        <h2>Upload a New Image</h2>
-        <input type="file" id="imageUpload" />
-        <button onclick="uploadImage()">Upload</button>
+
+    <!-- Controls for file upload and delete -->
+    <div class="controls">
+        <input type="file" id="fileInput" accept="image/*" />
+        <button id="uploadButton" class="btn colorful">Upload</button>
+        <button id="deleteButton" class="btn colorful">Delete</button>
     </div>
 
-    <!-- Gallery Section -->
-    <div class="gallery" id="gallery">
-        <!-- Existing images will be dynamically loaded here -->
+    <!-- Image gallery -->
+    <div class="gallery" id="gallery"></div>
+
+    <!-- Modal for Enlarged Image -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" />
+        <div id="caption"></div>
     </div>
 
-    <!-- Audio Section -->
+    <!-- Background music -->
     <audio id="player" autoplay loop>
         <source src="./music/Perfect.mp3" type="audio/mp3" />
     </audio>
-    
-    <!-- JavaScript -->
+
     <script src="./js/gallery.js"></script>
-	<script src="script.js"></script>
 </body>
 </html>

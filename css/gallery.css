@@ -1,152 +1,183 @@
+/* Background and General Body Styling */
 body {
-    /* Ảnh nền của trang thứ 3 */
     background: url("../img/phongnen.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .hello {
-    opacity: 1 !important;
-  }
-  .full {
-    position: fixed;
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+/* Button Styling */
+.btn.colorful {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.colorful:hover {
+    background-color: #ff3b30;
+}
+
+/* Style for file input label */
+#fileInput {
+    display: inline-block;
+    color: white; /* Change text color of "No file chosen" */
+}
+
+/* Gallery Layout */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
+    grid-gap: 10px; /* Gap between items */
+    grid-auto-rows: 1fr; /* Flexible rows for dynamic resizing */
+    padding: 10px;
+    width: 100%; /* Ensure gallery takes full width */
+}
+
+/* Gallery Item Styling */
+.gallery .gallery-item {
+    position: relative;
+    overflow: hidden;
+    transition: grid-row-start 300ms linear, transform 300ms ease;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the content horizontally */
+    height: 100%; /* Ensures item takes full available height */
+    width: 100%; /* Ensures item takes full available width */
+}
+
+/* Image Styling */
+.gallery img {
+    width: 100%;  /* Ensure image spans the full width */
+    height: 100%; /* Ensure image spans the full height */
+    object-fit: cover; /* Ensures the image completely covers the frame */
+    border-radius: 8px;
+    box-shadow: 0 0 16px #333;
+    transition: all 1.5s ease;
+}
+
+/* Image Hover Effect */
+.gallery img:hover {
+    box-shadow: 0 0 32px #333;
+}
+
+/* Content Padding */
+.gallery .content {
+    padding: 4px;
+}
+
+/* Gallery Item Hover Effect */
+.gallery .gallery-item:hover {
+    transform: scale(1.025);
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Style for Image Load Adjustments */
+.gallery-item .byebye {
+    visibility: hidden;
+}
+
+/* Adjust Grid Row Span Based on Image Height */
+.gallery-item {
+    grid-row-end: span 1;
+}
+
+/* Zoom-In Rotation with Blur Transition for Modal Image */
+@keyframes zoomin {
+    0% {
+        transform: scale(0.5) rotate(-30deg);
+        filter: blur(4px);
+    }
+    30% {
+        filter: blur(4px);
+        transform: scale(0.8) rotate(-80deg);
+    }
+    70% {
+        transform: scale(0.9) rotate(45deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: blur(0px);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-  }
-  .full .content {
-    background-color: rgba(0,0,0,0.75) !important;
-    height: 100%;
-    width: 100%;
-    display: grid;
-  }
-  .full .content img {
-    left: 50%;
-    transform: translate3d(0, 0, 0);
-    animation: zoomin 1s ease;
-    max-width: 100%;
-    max-height: 100vh;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+}
+
+.modal-content {
     margin: auto;
-  }
-  .byebye {
-    opacity: 0;
-  }
-  .byebye:hover {
-    transform: scale(0.2) !important;
-  }
-  .gallery {
-    display: grid;
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: 8px;
-  }
-  .gallery img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 16px #333;
-    transition: all 1.5s ease;
-  }
-  .gallery img:hover {
-    box-shadow: 0 0 32px #333;
-  }
-  .gallery .content {
-    padding: 4px;
-  }
-  .gallery .gallery-item {
-    transition: grid-row-start 300ms linear;
-    transition: transform 300ms ease;
-    transition: all 0.5s ease;
+    display: block;
+    max-width: 700px;
+    max-height: 80vh; /* Limit max height to 80% of the viewport */
+    width: auto;
+    height: auto;
+}
+
+/* Apply the animation on modal image */
+.modal-content.active {
+    animation: zoomin 1s ease forwards; /* Apply zoom-in animation */
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
     cursor: pointer;
-  }
-  .gallery .gallery-item:hover {
-    transform: scale(1.025);
-  }
-  @media (max-width: 600px) {
+}
+
+/* Media Query for Better Mobile Responsiveness */
+@media (max-width: 600px) {
     .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller columns for mobile */
     }
-  }
-  @media (max-width: 400px) {
-    .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    }
-  }
-  @-moz-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @-webkit-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @-o-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  
+}
