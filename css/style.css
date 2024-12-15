@@ -102,6 +102,26 @@ a {
     background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
 }
 
+/* Updated Secretary Button Styling to match other buttons */
+.btn-secretary {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    padding: 15px 45px; /* Same padding as other buttons */
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: background-position 0.5s ease;
+    animation: pulse 1.5s infinite; /* Same animation */
+    box-shadow: 0 0 20px #eee;
+    display: block;
+}
+
+.btn-secretary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Button for 'Yes' and 'No' */
 #yesBtn {
     background-color: #28a745; /* Green for 'Yes' */
     color: white;

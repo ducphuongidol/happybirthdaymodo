@@ -28,6 +28,21 @@ body {
     background-color: #ff3b30;
 }
 
+/* Button Styling for Secretary Button */
+.btn-secretary {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-secretary:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
 /* Style for file input label */
 #fileInput {
     display: inline-block;
