@@ -100,9 +100,10 @@ body {
     transform: scale(1.025);
 }
 
-/* Radio Button Styling */
+/* Updated Radio Button Styling */
 input[type="radio"] {
-    margin-top: 10px;
+    display: block;
+    margin: auto; /* Centers the radio button horizontally and vertically */
     cursor: pointer;
 }
 

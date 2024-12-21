@@ -60,6 +60,7 @@ uploadButton.addEventListener("click", async () => {
             if (imageDetails) {
                 displayImage(imageDetails.original_file_url, imageDetails.uuid);
                 fileInput.value = ""; // Reset the file input
+                alert("Image uploaded successfully!"); // Success message
             }
         } else {
             console.error("Upload failed:", data);
@@ -209,6 +210,7 @@ deleteButton.addEventListener("click", async () => {
                 // Remove the image from the gallery
                 selectedRadio.closest(".gallery-item").remove();
                 resizeAll(); // Adjust layout after deletion
+                alert("Image deleted successfully!"); // Success message
             } else {
                 throw new Error(`Failed to delete file. Status: ${response.status}`);
             }
